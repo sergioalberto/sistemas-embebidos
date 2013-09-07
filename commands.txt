@@ -1,0 +1,25 @@
+Ambiente de desarrollo:
+/opt/gstreamer-sdk/bin/gst-sdk-shell
+gcc basic-tutorial-1.c `pkg-config --cflags --libs gstreamer-0.10` -o tuto1
+./tuto1
+
+gcc `pkg-config --cflags --libs gtk+-2.0` hello.c -o hello
+gcc basic-tutorial-5.c `pkg-config --cflags --libs gstreamer-0.10 gtk+-2.0` -o tuto5
+
+
+gst-launch-0.10 filesrc location="archivo.mp3" ! decodebin ! alsasink
+gst-launch-0.10 filesrc location="1.mp3" ! mad ! alsasink
+
+gst-launch-0.10 audiotestsrc ! alsasink
+
+alsamixer
+
+gst-launch-0.10 videotestsrc ! ximagesink
+
+gst-launch-0.10 playbin2 uri=http://docs.gstreamer.com/media/sintel_trailer-480p.webm
+
+****** Muestra info del elemente***
+gst-inspect-0.10 vp8dec 
+
+***** muestra info de un archivo en internet
+gst-discoverer-0.10 http://docs.gstreamer.com/media/sintel_trailer-480p.webm -v
